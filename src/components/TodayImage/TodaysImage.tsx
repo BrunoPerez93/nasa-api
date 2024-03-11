@@ -1,13 +1,17 @@
 import React, { FC } from "react";
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { PostImage } from "../../types";
 
 const TodaysImage: FC<PostImage> = ({ date, title, url }) => {
   return (
     <View style={styles.container}>
-      <View>
-        <Image source={{ uri: url }} style={styles.image} />
+        <View>
+        {url ? (
+          <Image source={{ uri: url }} style={styles.image} />
+        ) : (
+          <Text style={styles.imagePlaceholderText}>Loading...</Text>
+        )}
       </View>
       <Text style={styles.title}>
         {title}
@@ -40,6 +44,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#fff',
   },
+  imagePlaceholderText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 16,
+  },
   title: {
     color: '#fff',
     fontSize: 20,
@@ -54,6 +63,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   button: {
-    color: '#0404F9',
+    color: '#fff',
   }
 }) 
