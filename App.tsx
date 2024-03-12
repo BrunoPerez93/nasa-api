@@ -2,17 +2,17 @@
 
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import Home from './src/pages/Home';
+import Routes from './src/routes'
 
 
 function App() {
 
 
   return (
-    
-      <View style={styles.container}>
-        <Home />
-      </View>
+
+    <View style={styles.container}>
+      <Routes/>
+    </View>
 
   );
 }
