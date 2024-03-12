@@ -10,5 +10,5 @@ export type PostImage = {
 
 export type RootStacksParams = {
   Home: undefined;
-  Detail: undefined;
+  Detail: PostImage;
 }

@@ -1,12 +1,26 @@
 import React, { FC } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { PostImage } from "../../types";
+import { PostImage, RootStacksParams } from "../../types";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-const TodaysImage: FC<PostImage> = ({ date, title, url }) => {
+type PostimageNavigationProps = NativeStackNavigationProp<
+  RootStacksParams,
+  'Detail'
+>;
+
+const TodaysImage: FC<PostImage> = ({ date, title, url, explanation }) => {
+
+  const { navigate } = useNavigation<PostimageNavigationProps>();
+
+  const handleViewPress = () => {
+    navigate('Detail', { title, date, url, explanation })
+  }
+
   return (
     <View style={styles.container}>
-        <View>
+      <View>
         {url ? (
           <Image source={{ uri: url }} style={styles.image} />
         ) : (
@@ -20,7 +34,12 @@ const TodaysImage: FC<PostImage> = ({ date, title, url }) => {
         {date}
       </Text>
       <TouchableOpacity style={styles.buttonContainer}>
-        <Text style={styles.button}>View</Text>
+        <Text
+          style={styles.button}
+          onPress={handleViewPress}
+        >
+          View
+        </Text>
       </TouchableOpacity>
 
     </View>
