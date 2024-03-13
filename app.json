@@ -1,4 +1,11 @@
 {
   "name": "NasaApi",
-  "displayName": "NasaApi"
+  "displayName": "NasaApi",
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "3e380287-afb7-4493-b935-855c7820a3a3"
+      }
+    }
+  }
 }
